@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.RHV.controller.RegisterCustomerController"
+      alignment="TOP_CENTER"
+      spacing="25"
+      styleClass="form-container"
+      prefWidth="600"
+      prefHeight="450">
+
+    <Label text="Register Customer" styleClass="form-title"/>
+
+    <VBox spacing="15" styleClass="form-card">
+        <TextField fx:id="txtName" promptText="Full Name" />
+        <TextField fx:id="txtAddress" promptText="Address" />
+        <TextField fx:id="txtEmail" promptText="Email" />
+        <TextField fx:id="txtPhone" promptText="Phone Number" />
+    </VBox>
+
+    <Button fx:id="btnSave" text="Save Customer" styleClass="primary-button"/>
+
+</VBox>

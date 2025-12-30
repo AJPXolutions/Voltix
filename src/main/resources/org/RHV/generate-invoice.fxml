@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.RHV.controller.GenerateInvoiceController"
+      alignment="TOP_CENTER"
+      spacing="25"
+      styleClass="form-container"
+      prefWidth="600"
+      prefHeight="500">
+
+    <Label text="Generate Invoice" styleClass="form-title"/>
+
+    <VBox spacing="15" styleClass="form-card">
+
+        <ComboBox fx:id="comboCustomers" promptText="Select Customer"/>
+
+        <TextField fx:id="txtKwh" promptText="kWh consumed"/>
+
+        <DatePicker fx:id="dateIssue" promptText="Start Date"/>
+        <DatePicker fx:id="dateDue" promptText="End Date"/>
+
+    </VBox>
+
+    <Button fx:id="btnGenerate" text="Generate Invoice" styleClass="primary-button"/>
+
+</VBox>

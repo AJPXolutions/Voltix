@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.chart.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.RHV.controller.MainViewController"
+            stylesheets="@material.css">
+
+    <!-- SIDEBAR -->
+    <left>
+        <VBox spacing="25" prefWidth="220" style="-fx-background-color: #1E1E2F;">
+            <padding>
+                <Insets top="35" right="20" bottom="35" left="20"/>
+            </padding>
+
+            <!-- VOLTIX CLICKABLE + HOVER -->
+            <Label fx:id="labelVoltix"
+                   text="Voltix"
+                   styleClass="hover-voltix"
+                   style="-fx-font-size: 24; -fx-cursor: hand;"/>
+
+            <Button text="Register Customer" fx:id="btnRegisterCustomer" styleClass="sidebar-button"/>
+            <Button text="List Customers" fx:id="btnListCustomers" styleClass="sidebar-button"/>
+            <Button text="Generate Invoice" fx:id="btnGenerateInvoice" styleClass="sidebar-button"/>
+            <Button text="List Invoices" fx:id="btnListInvoices" styleClass="sidebar-button"/>
+
+        </VBox>
+    </left>
+
+    <!-- HEADER -->
+    <top>
+        <HBox spacing="15" style="-fx-background-color: #ffffff;">
+            <padding>
+                <Insets top="12" right="20" bottom="12" left="20"/>
+            </padding>
+
+            <ImageView fx:id="logoVoltix"
+                       fitHeight="40" fitWidth="40"
+                       pickOnBounds="true" preserveRatio="true"/>
+
+            <!-- VOLTIX DASHBOARD CLICKABLE + HOVER -->
+            <Label fx:id="labelVoltixHeader"
+                   text="Voltix Dashboard"
+                   styleClass="hover-voltix-header"
+                   style="-fx-font-size: 20; -fx-cursor: hand;"/>
+        </HBox>
+    </top>
+
+    <!-- PANEL CENTRAL -->
+    <center>
+        <StackPane fx:id="contentArea" style="-fx-padding: 25;">
+
+            <!-- DASHBOARD DEFAULT -->
+            <VBox fx:id="dashboardRoot" spacing="35" alignment="TOP_CENTER">
+
+                <!-- CARDS -->
+                <HBox spacing="25">
+
+                    <VBox spacing="10" styleClass="dashboard-card">
+                        <Label text="Total Customers" styleClass="card-title"/>
+                        <Label fx:id="lblTotalCustomers" text="0" styleClass="card-value"/>
+                    </VBox>
+
+                    <VBox spacing="10" styleClass="dashboard-card">
+                        <Label text="Total Invoices" styleClass="card-title"/>
+                        <Label fx:id="lblTotalInvoices" text="0" styleClass="card-value"/>
+                    </VBox>
+
+                    <VBox spacing="10" styleClass="dashboard-card">
+                        <Label text="Pending Payments" styleClass="card-title"/>
+                        <Label fx:id="lblPending" text="0" styleClass="card-value"/>
+                    </VBox>
+
+                </HBox>
+
+                <!-- CHARTS -->
+                <HBox spacing="35">
+
+                    <BarChart fx:id="chartConsumptionByCustomer"
+                              prefWidth="400" prefHeight="300">
+                        <xAxis><CategoryAxis label="Customer"/></xAxis>
+                        <yAxis><NumberAxis label="kWh"/></yAxis>
+                    </BarChart>
+
+                    <LineChart fx:id="chartMonthlyConsumption"
+                               prefWidth="400" prefHeight="300">
+                        <xAxis><CategoryAxis label="Month"/></xAxis>
+                        <yAxis><NumberAxis label="kWh"/></yAxis>
+                    </LineChart>
+
+                    <PieChart fx:id="chartInvoicesByCustomer"
+                              prefWidth="350" prefHeight="300"/>
+                </HBox>
+
+            </VBox>
+
+        </StackPane>
+    </center>
+
+</BorderPane>

@@ -1,0 +1,192 @@
+/* ============================================================
+   VOLTIX — MATERIAL DESIGN THEME (OPTIMIZED)
+   ============================================================ */
+
+/* ---------- GLOBAL ---------- */
+.root {
+    -fx-font-family: "Roboto", "Segoe UI", sans-serif;
+    -fx-background-color: #FAFAFA;
+}
+
+/* ---------- BUTTONS ---------- */
+.button {
+    -fx-background-radius: 8;
+    -fx-background-color: #3A7AFE;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 10 20;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #2F63D8;
+}
+
+/* ---------- PRIMARY BUTTON ---------- */
+.primary-button {
+    -fx-background-color: #3A7AFE;
+    -fx-text-fill: white;
+    -fx-background-radius: 8;
+    -fx-padding: 10 20;
+}
+
+.primary-button:hover {
+    -fx-background-color: #2F63D8;
+}
+
+/* ---------- TEXTFIELDS ---------- */
+.text-field {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 4;
+    -fx-border-color: #BDBDBD;
+    -fx-border-radius: 4;
+    -fx-padding: 8;
+}
+
+.text-field:focused {
+    -fx-border-color: #2962FF;
+}
+
+/* ---------- COMBOBOX ---------- */
+.combo-box {
+    -fx-background-radius: 4;
+    -fx-border-radius: 4;
+    -fx-border-color: #BDBDBD;
+}
+
+.combo-box:focused {
+    -fx-border-color: #2962FF;
+}
+
+/* ---------- DATE PICKER ---------- */
+.date-picker {
+    -fx-background-radius: 4;
+    -fx-border-radius: 4;
+    -fx-border-color: #BDBDBD;
+}
+
+.date-picker:focused {
+    -fx-border-color: #2962FF;
+}
+
+/* ---------- TABLEVIEW ---------- */
+.table-view {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-padding: 5;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #F0F0F0;
+}
+
+.table-view .column-header {
+    -fx-font-weight: bold;
+}
+
+/* ---------- LABELS ---------- */
+.label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #424242;
+}
+
+/* ---------- TITLES ---------- */
+.form-title {
+    -fx-font-size: 22;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+}
+
+/* ---------- FORM CONTAINER ---------- */
+.form-container {
+    -fx-background-color: white;
+    -fx-padding: 30;
+    -fx-spacing: 20;
+    -fx-alignment: CENTER;
+    -fx-background-radius: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 12, 0, 0, 4);
+}
+
+/* ---------- FORM CARD ---------- */
+.form-card {
+    -fx-background-color: white;
+    -fx-padding: 20;
+    -fx-background-radius: 12;
+    -fx-spacing: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 8, 0, 0, 2);
+}
+
+/* ---------- SIDEBAR ---------- */
+.sidebar {
+    -fx-background-color: #2962FF;
+    -fx-padding: 20;
+    -fx-pref-width: 220;
+}
+
+.sidebar-title {
+    -fx-text-fill: white;
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+}
+
+.sidebar-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 10 0 10 10;
+    -fx-background-radius: 4;
+    -fx-cursor: hand;
+}
+
+.sidebar-button:hover {
+    -fx-background-color: rgba(255,255,255,0.2);
+}
+
+/* ---------- DASHBOARD CARDS ---------- */
+.dashboard-card {
+    -fx-background-color: white;
+    -fx-padding: 15;
+    -fx-background-radius: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 8, 0, 0, 2);
+}
+
+.card-title {
+    -fx-font-size: 14;
+    -fx-text-fill: #555;
+}
+
+.card-value {
+    -fx-font-size: 22;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2962FF;
+}
+
+/* --- HOVER ANIMADO PARA VOLTIX (SIDEBAR Y HEADER) --- */
+
+.hover-voltix {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-transition: all 0.25s ease-in-out;
+}
+
+.hover-voltix-header {
+    -fx-text-fill: #000000;
+    -fx-font-weight: bold;
+    -fx-transition: all 0.25s ease-in-out;
+}
+
+/* Efecto hover */
+.hover-voltix:hover {
+    -fx-text-fill: #4FC3F7; /* Azul suave */
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+.hover-voltix-header:hover {
+    -fx-text-fill: #1976D2; /* Azul más fuerte */
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}

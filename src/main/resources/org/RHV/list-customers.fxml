@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.RHV.controller.ListCustomersController"
+      alignment="TOP_CENTER"
+      spacing="20"
+      styleClass="form-container"
+      fillWidth="true"
+      prefHeight="500">
+
+    <Label text="Customers" styleClass="form-title"/>
+
+    <TableView fx:id="tableCustomers"
+               prefHeight="350"
+               VBox.vgrow="ALWAYS"
+               styleClass="table-view">
+
+        <columns>
+            <TableColumn fx:id="colId" text="ID" prefWidth="80"/>
+            <TableColumn fx:id="colName" text="Name" prefWidth="150"/>
+            <TableColumn fx:id="colAddress" text="Address" prefWidth="180"/>
+            <TableColumn fx:id="colEmail" text="Email" prefWidth="150"/>
+            <TableColumn fx:id="colPhone" text="Phone" prefWidth="120"/>
+        </columns>
+
+    </TableView>
+
+</VBox>
