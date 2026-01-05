@@ -75,16 +75,42 @@
     -fx-background-color: white;
     -fx-background-radius: 10;
     -fx-border-radius: 10;
-    -fx-padding: 5;
+
+    /* Eliminamos padding lateral que causaba la columna fantasma */
+    -fx-padding: 0 0 0 0;
 }
 
+/* Fondo del header */
 .table-view .column-header-background {
     -fx-background-color: #F0F0F0;
+    -fx-background-radius: 10 10 0 0;
 }
 
+/* Estilo del texto del header */
 .table-view .column-header {
     -fx-font-weight: bold;
+    -fx-alignment: CENTER_LEFT;
 }
+
+/* Celdas */
+.table-view .table-cell {
+    -fx-padding: 8 10 8 10; /* padding interno elegante */
+    -fx-font-size: 14px;
+}
+
+/* Filas */
+.table-row-cell {
+    -fx-background-color: white;
+}
+
+.table-row-cell:filled:hover {
+    -fx-background-color: #E3F2FD; /* azul suave */
+}
+
+.table-row-cell:filled:selected {
+    -fx-background-color: #BBDEFB;
+}
+
 
 /* ---------- LABELS ---------- */
 .label {

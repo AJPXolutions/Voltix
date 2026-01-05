@@ -3,7 +3,13 @@ package org.RHV.controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import org.RHV.model.Customer;
+import org.RHV.service.CustomerService;
+import org.RHV.service.InvoiceService;
 
+/**
+ * Controlador encargado de la pantalla de generación de facturas.
+ * Conecta la UI con los servicios.
+ */
 public class GenerateInvoiceController {
 
     @FXML private ComboBox<Customer> comboCustomers;
@@ -12,17 +18,18 @@ public class GenerateInvoiceController {
     @FXML private DatePicker dateDue;
     @FXML private Button btnGenerate;
 
-    private CustomerController customerController;
-    private InvoiceController invoiceController;
+    private CustomerService customerService;
+    private InvoiceService invoiceService;
 
     @FXML
     public void initialize() {
 
-        customerController = MainControllers.customerController;
-        invoiceController = MainControllers.invoiceController;
+        // Inicializar servicios
+        customerService = new CustomerService();
+        invoiceService = new InvoiceService();
 
-        // Cargar clientes en el ComboBox
-        comboCustomers.getItems().addAll(customerController.getAllCustomers());
+        // Cargar clientes desde MySQL
+        comboCustomers.getItems().addAll(customerService.getAllCustomers());
 
         // Mostrar solo el nombre del cliente en el ComboBox
         comboCustomers.setCellFactory(listView -> new ListCell<>() {
@@ -41,9 +48,13 @@ public class GenerateInvoiceController {
             }
         });
 
+        // Acción del botón
         btnGenerate.setOnAction(e -> generateInvoice());
     }
 
+    /**
+     * Lógica para generar una factura desde la UI.
+     */
     private void generateInvoice() {
         try {
             Customer customer = comboCustomers.getValue();
@@ -59,8 +70,8 @@ public class GenerateInvoiceController {
 
             double kwh = Double.parseDouble(kwhText);
 
-            // Crear factura
-            invoiceController.createInvoice(customer.getId(), kwh, startDate, endDate);
+            // Generar factura
+            invoiceService.generateInvoice(customer, kwh, startDate, endDate);
 
             showAlert("Invoice generated successfully");
 

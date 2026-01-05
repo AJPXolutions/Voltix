@@ -1,25 +1,32 @@
 package org.RHV.model;
 
-/*
+/**
  * Representa una factura generada para un cliente.
- * Contiene: cliente, consumo, tarifa aplicada y total a pagar.
+ * Contiene: cliente, consumo asociado, tarifa aplicada y total a pagar.
+ * El ID es generado automáticamente por MySQL.
  */
 public class Invoice {
 
-    private static int counter = 1;
+    // ID generado por MySQL
+    private int invoiceId;
 
-    private final int invoiceId;
+    // Cliente al que pertenece la factura
     private final Customer customer;
+
+    // Consumo eléctrico asociado a esta factura
     private final Consumption consumption;
+
+    // Tarifa aplicada según el consumo
     private final double appliedRate;
+
+    // Total a pagar calculado
     private final double totalToPay;
 
     /**
-     * Constructor usado cuando el sistema genera una nueva factura.
-     * El ID se asigna automáticamente.
+     * Constructor usado cuando se genera una nueva factura desde la UI.
+     * El ID será asignado después de guardar en MySQL.
      */
     public Invoice(Customer customer, Consumption consumption, double appliedRate, double totalToPay) {
-        this.invoiceId = counter++;
         this.customer = customer;
         this.consumption = consumption;
         this.appliedRate = appliedRate;
@@ -27,8 +34,7 @@ public class Invoice {
     }
 
     /**
-     * Constructor usado al cargar facturas desde archivo (CSV).
-     * Permite restaurar el ID original.
+     * Constructor usado al cargar facturas desde MySQL.
      */
     public Invoice(int invoiceId, Customer customer, Consumption consumption, double appliedRate, double totalToPay) {
         this.invoiceId = invoiceId;
@@ -36,15 +42,15 @@ public class Invoice {
         this.consumption = consumption;
         this.appliedRate = appliedRate;
         this.totalToPay = totalToPay;
-
-        // Mantener el contador sincronizado
-        if (invoiceId >= counter) {
-            counter = invoiceId + 1;
-        }
     }
 
     public int getInvoiceId() {
         return invoiceId;
+    }
+
+    // Setter necesario para asignar el ID generado por MySQL
+    public void setInvoiceId(int invoiceId) {
+        this.invoiceId = invoiceId;
     }
 
     public Customer getCustomer() {
@@ -61,13 +67,5 @@ public class Invoice {
 
     public double getTotalToPay() {
         return totalToPay;
-    }
-
-    @Override
-    public String toString() {
-        return "Invoice #" + invoiceId +
-                " | Customer: " + customer.getName() +
-                " | kWh: " + consumption.getKWh() +
-                " | Total: $" + totalToPay;
     }
 }

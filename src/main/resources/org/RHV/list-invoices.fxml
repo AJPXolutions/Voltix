@@ -9,14 +9,14 @@
       alignment="CENTER"
       spacing="20"
       styleClass="form-container"
-      prefWidth="750"
-      prefHeight="550">
+      fillWidth="true"
+      prefHeight="500">
 
     <Label text="Invoices" styleClass="form-title"/>
 
     <TableView fx:id="tableInvoices"
                prefHeight="380"
-               prefWidth="700"
+               VBox.vgrow="ALWAYS"
                styleClass="table-view">
 
         <columns>
@@ -27,5 +27,4 @@
         </columns>
 
     </TableView>
-
 </VBox>

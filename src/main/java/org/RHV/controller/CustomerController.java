@@ -45,22 +45,6 @@ public class CustomerController {
     }
 
     /**
-     * Busca un cliente por ID.
-     */
-    public Customer getCustomer(int id) {
-        logger.info("Request to get customer with ID: " + id);
-        Customer customer = customerService.getCustomerById(id);
-
-        if (customer == null) {
-            logger.warning("Customer not found with ID: " + id);
-        } else {
-            logger.info("Customer found: " + customer.getName());
-        }
-
-        return customer;
-    }
-
-    /**
      * Devuelve la lista completa de clientes.
      */
     public List<Customer> getAllCustomers() {
