@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>⚡ Voltix — Facturación Energética</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- Sidebar / Navigation -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <span class="logo">⚡</span>
+      <h1 class="brand">Voltix</h1>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#" data-view="dashboard" class="nav-item active">
+        <span class="nav-icon">📊</span> Dashboard
+      </a></li>
+      <li><a href="#" data-view="clientes" class="nav-item">
+        <span class="nav-icon">👥</span> Clientes
+      </a></li>
+      <li><a href="#" data-view="consumos" class="nav-item">
+        <span class="nav-icon">⚡</span> Consumos
+      </a></li>
+      <li><a href="#" data-view="facturas" class="nav-item">
+        <span class="nav-icon">🧾</span> Facturas
+      </a></li>
+      <li><a href="#" data-view="reportes" class="nav-item">
+        <span class="nav-icon">📈</span> Reportes
+      </a></li>
+    </ul>
+    <div class="sidebar-footer">
+      <span class="version">v1.0.0 · Web</span>
+    </div>
+  </nav>
+
+  <!-- Main content area -->
+  <main class="main-content" id="main-content">
+    <header class="top-bar">
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">&#9776;</button>
+      <h2 class="page-title" id="page-title">Dashboard</h2>
+    </header>
+
+    <!-- View container: each module renders here -->
+    <section class="view-container" id="view-container">
+      <!-- Rendered by JS -->
+    </section>
+  </main>
+
+  <!-- Modal for forms -->
+  <div class="modal-overlay" id="modal-overlay" hidden>
+    <div class="modal" id="modal" role="dialog" aria-modal="true">
+      <button class="modal-close" id="modal-close" aria-label="Cerrar">&times;</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Toast notifications -->
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <!-- Application modules (ES Modules) -->
+  <script type="module" src="src/app.js"></script>
+</body>
+</html>
