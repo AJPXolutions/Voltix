@@ -1,6 +1,4 @@
 import { ClienteController } from '../controllers/ClienteController.js';
-import { consumoStore } from '../controllers/ConsumoController.js';
-import { facturaStore } from '../controllers/FacturaController.js';
 import { showModal, closeModal, showToast } from '../app.js';
 
 function escapeHtml(str = '') {
@@ -83,7 +81,7 @@ function bindRowActions(container) {
   container.querySelectorAll('.btn-delete').forEach((btn) => {
     btn.addEventListener('click', () => {
       if (!confirm('¿Eliminar este cliente y todos sus datos asociados?')) return;
-      ClienteController.delete(btn.dataset.id, consumoStore, facturaStore);
+      ClienteController.delete(btn.dataset.id);
       showToast('Cliente eliminado.', 'info');
       renderClientes(container);
     });

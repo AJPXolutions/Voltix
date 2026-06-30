@@ -2,6 +2,9 @@ import { Cliente } from '../models/Cliente.js';
 import { StorageService } from '../services/StorageService.js';
 
 const store = new StorageService('clientes');
+// Internal references to related stores for cascading deletes
+const consumoStore  = new StorageService('consumos');
+const facturaStore  = new StorageService('facturas');
 
 export const ClienteController = {
   /** Retorna todos los clientes. */
@@ -45,14 +48,11 @@ export const ClienteController = {
   },
 
   /**
-   * Elimina un cliente y sus consumos/facturas asociados.
+   * Elimina un cliente y sus consumos/facturas asociados en cascada.
    * @param {string} id
-   * @param {import('../services/StorageService.js').StorageService} consumoStore
-   * @param {import('../services/StorageService.js').StorageService} facturaStore
    */
-  delete(id, consumoStore, facturaStore) {
+  delete(id) {
     store.delete(id);
-    // Eliminar consumos del cliente
     const consumos = consumoStore.findWhere({ clienteId: id });
     consumos.forEach((c) => {
       consumoStore.delete(c.id);
